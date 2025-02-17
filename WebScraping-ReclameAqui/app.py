@@ -4,8 +4,5 @@ app = Flask(__name__)
 
 ScrapperService.abrindoPagina()
 ScrapperService.melhoresNotas()
-print("-------------------------")
-print("-------------------------")
-ScrapperService.pioresNotas()
-
+print("Encerrado")
 app.run()
