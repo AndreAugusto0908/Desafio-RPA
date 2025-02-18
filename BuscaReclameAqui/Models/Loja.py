@@ -5,3 +5,4 @@ class Loja:
         self.voltariam = None
         self.indice_solucao = None
         self.percentual_respondido = None
+        self.numero_solicitaçoes = None
