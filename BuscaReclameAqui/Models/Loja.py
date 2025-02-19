@@ -12,8 +12,11 @@ class Loja:
 
     def formatar_dados(self, voltariam, indice_solucao, percentual_respondido, numero_solicitacoes):
         self.percentual_voltariam = re.findall(r'\d+\.?\d*%', voltariam)
+        self.percentual_voltariam = self.percentual_voltariam[0] if self.percentual_voltariam else ""
         self.percentual_indice_solucao = re.findall(r'\d+\.?\d*%', indice_solucao)
+        self.percentual_indice_solucao = self.percentual_indice_solucao[0] if self.percentual_indice_solucao else ""
         self.percentual_respondido = re.findall(r'\d+\.?\d*%', percentual_respondido)
+        self.percentual_respondido = self.percentual_respondido[0] if self.percentual_respondido else ""
         self.numero_solicitacoes = int(numero_solicitacoes)
         
     def __repr__(self):

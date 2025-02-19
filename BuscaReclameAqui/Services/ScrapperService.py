@@ -18,15 +18,15 @@ def abrindoPagina():
 def melhoresNotas():
     Lojas = BuscaScrapping.buscaEmpresas(navegador)
     top_3_lojas = sorted(Lojas, key=lambda x: x.nota, reverse=True)[:3]
-    print(top_3_lojas)
     for loja in top_3_lojas:
-        navegador.quit()
         navegador2 = webdriver.Chrome(service=servico)
         BuscaScrapping.pesquisarEmpresa(navegador2, loja)
+    navegador.get(paginaDeBusca)
     return top_3_lojas
 
 
 def pioresNotas():
+    navegador.get(paginaDeBusca)
     navegador.find_element('xpath', '/html/body/section[2]/div/div/div[2]/astro-island/div/div[2]/ul/li[2]').click()
     Piores_lojas = BuscaScrapping.buscaEmpresas(navegador)
     lojas_nota_0 = [loja for loja in Piores_lojas if loja.nota == 0 or str(loja.nota).strip() == "0"]
