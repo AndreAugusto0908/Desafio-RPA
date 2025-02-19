@@ -1,4 +1,6 @@
 import Services.ScrapperService as ScrapperService
+import Services.PlanilhaService as planilhaService
 
 ScrapperService.abrindoPagina()
-ScrapperService.pioresNotas()
+lojas = ScrapperService.pioresNotas()
+planilhaService.escrevendoPlanilha(lojas)

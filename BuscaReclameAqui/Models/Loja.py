@@ -1,3 +1,5 @@
+import re
+
 class Loja:
     def __init__(self, nome, nota, href):
         self.nome = nome
@@ -9,9 +11,9 @@ class Loja:
         self.numero_solicitacoes = 0
 
     def formatar_dados(self, voltariam, indice_solucao, percentual_respondido, numero_solicitacoes):
-        self.percentual_voltariam = voltariam if voltariam != "--%" else "0%"
-        self.percentual_indice_solucao = indice_solucao if indice_solucao != "--%" else "0%"
-        self.percentual_respondido = percentual_respondido if percentual_respondido != "--%" else "0%"
+        self.percentual_voltariam = re.findall(r'\d+\.?\d*%', voltariam)
+        self.percentual_indice_solucao = re.findall(r'\d+\.?\d*%', indice_solucao)
+        self.percentual_respondido = re.findall(r'\d+\.?\d*%', percentual_respondido)
         self.numero_solicitacoes = int(numero_solicitacoes)
         
     def __repr__(self):

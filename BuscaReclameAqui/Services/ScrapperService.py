@@ -23,7 +23,7 @@ def melhoresNotas():
         navegador.quit()
         navegador2 = webdriver.Chrome(service=servico)
         BuscaScrapping.pesquisarEmpresa(navegador2, loja)
-    print(top_3_lojas)
+    return top_3_lojas
 
 
 def pioresNotas():
@@ -38,5 +38,5 @@ def pioresNotas():
     
     lojas_nota_0.sort(key=lambda x: x.numero_solicitacoes, reverse=True)
     top_3_piores_lojas = lojas_nota_0[:3]
-    print(top_3_piores_lojas)
+    return top_3_piores_lojas
 
