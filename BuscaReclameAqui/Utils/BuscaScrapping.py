@@ -37,4 +37,5 @@ def pesquisarEmpresa(navegador, loja):
     numero_solicitacoes = re.findall(r'\d+', numero_solicitacoes)[0]
     loja.formatar_dados(percentual_voltariam, percentual_indice_solucao, percentual_respondido, numero_solicitacoes)
     print(loja)
+    navegador.close()
     return navegador
