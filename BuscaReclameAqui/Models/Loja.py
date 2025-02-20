@@ -1,5 +1,8 @@
 import re
 
+"""Representa uma loja com informações coletadas do Reclame Aqui, incluindo nome, nota, link, 
+    percentual de clientes que voltariam a fazer negócio, índice de solução, percentual de respostas 
+    e número total de solicitações."""
 class Loja:
     def __init__(self, nome, nota, href):
         self.nome = nome
@@ -10,6 +13,8 @@ class Loja:
         self.percentual_respondido = "0%"
         self.numero_solicitacoes = 0
 
+    """Formata e armazena os dados coletados sobre a empresa, extraindo os percentuais e convertendo 
+        o número de solicitações para inteiro."""
     def formatar_dados(self, voltariam, indice_solucao, percentual_respondido, numero_solicitacoes):
         self.percentual_voltariam = re.findall(r'\d+\.?\d*%', voltariam)
         self.percentual_voltariam = self.percentual_voltariam[0] if self.percentual_voltariam else ""

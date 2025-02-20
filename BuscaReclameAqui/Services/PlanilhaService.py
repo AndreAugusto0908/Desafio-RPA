@@ -2,6 +2,8 @@ import pandas as pd
 import Utils.FormatarString as formatarString
 from datetime import datetime
 
+"""Gera uma planilha Excel com os dados das lojas, incluindo nome, nota, link, percentual de clientes que voltariam, 
+    índice de solução, percentual de respostas e número de solicitações. O arquivo é salvo com um nome contendo a data e hora da execução."""
 def escrevendoPlanilha(lojas):
     dados = [{
         "Nome": loja.nome,
