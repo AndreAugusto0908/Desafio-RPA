@@ -10,12 +10,14 @@ paginaDeBusca = 'https://www.reclameaqui.com.br/'
 Melhores_lojas = []
 Piores_lojas = []
 
+"""Abre a página inicial do Reclame Aqui, maximiza a janela e aceita os cookies e permissões necessárias para navegação."""
 def abrindoPagina():
     navegador.get(paginaDeBusca)
     navegador.maximize_window()
-    navegador.find_element('xpath', '//*[@id="vwo-frame-wrapper"]/div[2]/button[1]').click()
     navegador.find_element('xpath', '//*[@id="adopt-accept-all-button"]').click()
 
+"""Busca todas as empresas na categoria de moda, ordena por nota e retorna as três melhores. 
+    Para cada uma das três melhores empresas, acessa sua página no Reclame Aqui para coletar dados detalhados."""
 def melhoresNotas():
     Lojas = BuscaScrapping.buscaEmpresas(navegador)
     top_3_lojas = sorted(Lojas, key=lambda x: x.nota, reverse=True)[:3]
@@ -26,6 +28,8 @@ def melhoresNotas():
     return top_3_lojas
 
 
+"""Busca as empresas com nota 0, ordena pelo número de solicitações e retorna as três maiores solicitações. 
+    Para cada empresa de nota 0, acessa sua página no Reclame Aqui para coletar informações detalhadas."""
 def pioresNotas():
     navegador.get(paginaDeBusca)
     navegador.find_element('xpath', '/html/body/section[2]/div/div/div[2]/astro-island/div/div[2]/ul/li[2]').click()

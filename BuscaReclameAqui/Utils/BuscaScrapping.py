@@ -3,6 +3,9 @@ import re
 from Models.Loja import Loja
 
 Lojas = []
+
+"""Percorre as categorias de moda no site, coletando o nome, a nota e o link das empresas disponíveis. 
+    A função navega entre as categorias, seleciona cada empresa e armazena essas informações em uma lista de objetos Loja."""
 def buscaEmpresas(navegador):
     for i in range(1, 17):
         selecionar_categoria = navegador.find_element('xpath','/html/body/section[2]/div/div/div[2]/astro-island/div/div[1]/div/div/input')
@@ -28,6 +31,10 @@ def buscaEmpresas(navegador):
                 break
     return Lojas
 
+
+"""Acessa a página principal da empresa no Reclame Aqui e coleta dados como número de solicitações, percentual de respostas, 
+    percentual de clientes que voltariam a fazer negócio e o índice de solução. Após obter essas informações, os dados são formatados 
+    e armazenados no objeto Loja antes de fechar o navegador."""
 def pesquisarEmpresa(navegador, loja):
     navegador.get(loja.href)
     numero_solicitacoes = navegador.find_element('xpath', '//*[@id="newPerformanceCard"]/div[2]/div[1]/span/strong').text
