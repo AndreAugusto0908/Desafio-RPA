@@ -13,6 +13,7 @@ Piores_lojas = []
 def abrindoPagina():
     navegador.get(paginaDeBusca)
     navegador.maximize_window()
+    navegador.find_element('xpath', '//*[@id="vwo-frame-wrapper"]/div[2]/button[1]').click()
     navegador.find_element('xpath', '//*[@id="adopt-accept-all-button"]').click()
 
 def melhoresNotas():

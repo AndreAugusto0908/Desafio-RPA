@@ -9,7 +9,7 @@ def escrevendoPlanilha(lojas):
         "Link": loja.href,
         "Percentual Voltariam": formatarString.tratar_percentual(loja.percentual_voltariam),
         "Índice de Solução": formatarString.tratar_percentual(loja.percentual_indice_solucao),
-        "Percentual Respondido": formatarString.stratar_percentual(loja.percentual_respondido),
+        "Percentual Respondido": formatarString.tratar_percentual(loja.percentual_respondido),
         "Número de Solicitações": loja.numero_solicitacoes
     } for loja in lojas]
     
